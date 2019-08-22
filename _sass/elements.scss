@@ -1,6 +1,6 @@
 html, body {
 	padding: 0;
-	margin: 0;
+	margin: auto;
 	font-family: 'Open Sans', sans-serif;
 	color: #333;
 	min-width: 380px;
@@ -13,13 +13,11 @@ img {
 hr {
 	height:1px;
 	border: 0;
-	background-color: #ddd;
-	margin-bottom: 50px;
+	background-color: #bbb;
 }
 
 h1 {
 	padding: 0;
-	margin: 0 0 20px 0;
 	font-size: 3em;
 }
 
@@ -31,73 +29,51 @@ h2 {
 
 h3 {
 	font-size: 1.8em;
+	color: darkred;
+	margin: 20px 0 20px 0;
+}
+
+h4 {
+	font-size: 1.5em;
 	margin: 20px 0 20px 0;
 }
 
 p {
-	font-size: 1.3em;
-	line-height: 1.4em;
-	color: #888;
+	font-size: 1.1em;
+	color: black;
 }
 
-nav {
-	padding: 30px 0;
-	svg {
-		fill: $brand-color;
-		height: 35px;
-	}
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+     color: darkred;
 }
 
-section {
-	padding: 60px 0;
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-size: 1.3em;
 }
 
-form {
-	display: flex;
-	max-width: 500px;
-	margin: 0 auto;
-
-	input[type="text"] {
-		flex-grow: 1;
-		flex-shrink: 1;
-		width: 100%;
-		border: 1px solid #ddd;
-
-
-		&, &:focus {
-			border-top-left-radius: 30px;
-			border-bottom-left-radius: 30px;
-		}
-
-		&:focus {
-			box-shadow: 0 0 5px 0 $brand-color;
-			outline: none;
-		}
-	}
-
-	input[type="submit"] {
-		border-top-right-radius: 30px;
-		border-bottom-right-radius: 30px;
-
-		&:hover {
-			background: darken($brand-color, 5%);
-		}
-	}
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.button a, input[type="submit"], input[type="text"] {
-	border: 0;
-	padding: 15px 40px;
-	box-sizing: content-box;
-	font-size: 1em;
-	font-weight: 100;
-}
-
-.button a, input[type="submit"] {
-	background: $brand-color;
-	color: #fff;
-	cursor: pointer;
-	font-weight: bold;
+input[type=submit]:hover {
+  background-color: #45a049;
 }
 
 .button a {
