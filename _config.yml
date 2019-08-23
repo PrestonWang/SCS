@@ -2,8 +2,8 @@
 # Site
 
 title: Stanford Christian
-url: https://prestonwang.github.io/
-baseurl:SCS
+url: https://prestonwang.github.io
+baseurl: SCS
 google_analytics_key:
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
