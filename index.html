@@ -1,6 +1,6 @@
 ---
 layout: default
-title: MIT Christians on Campus
+title: Stanford Christian Students
 ---
 
 <header>
@@ -43,7 +43,7 @@ title: MIT Christians on Campus
 		<div>
 			<h2 class="editable">About us</h2>
 
-			<p class="editable">MIT Christians on Campus is a registered MIT student organization. We are believers in Christ from diverse backgrounds who love our dear Lord Jesus and hold the Christian faith which is common to all believers.</p>
+			<p class="editable">Stanford Christian Students is a registered Stanford student organization. We are believers in Christ from diverse backgrounds who love our dear Lord Jesus and hold the Christian faith which is common to all believers.</p>
 		</div>
 	</div>
 </div>
@@ -61,7 +61,7 @@ title: MIT Christians on Campus
 		<li>
 		    <img src="/images/small-group.jpg" alt="Small-Group"/>
 			<h3 class="editable">SMALL GROUP GATHERINGS</h3>
-			<p class="editable">A home away from home! Come enjoy open homes, open hearts, open Bibles and open fridges in the Cambridge community.</p>
+			<p class="editable">A home away from home! Come enjoy open homes, open hearts, open Bibles and open fridges in the Palo Alto community.</p>
 		</li>
 		<li>
 		    <img src="/images/ipmm.jpg" alt="IPMM"/>
@@ -170,30 +170,4 @@ title: MIT Christians on Campus
     </form>
 </div>
 
-<div class="darker">
-	<h2 class="editable">Previous Events</h2>
-	<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn"><strong>&#9998;</strong> Add Previous Events</a></p>
-	<div class="seconds">
-	    {% assign sorted_posts = site.categories.previous-events | sort:"date" | reverse %}
-		{% for post in sorted_posts limit:4 %}
-			<li>
-				<img src="{{ post.featured_image}}"/>
-				<div class="post-content">
-					<p class="date">{{ post.date | date: '%B %d, %Y' }}</p>
-					<h3>{{ post.title }}</h3>
 
-					{{ post.content }}
-					<p class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="btn"><strong>&#9998;</strong> Edit Update</a></p>
-				</div>
-			</li>
-		{% endfor %}
-	</div>
-</div>
-
-<div class = "container">
-    <h2 class="editable">Our Sister Clubs</h2>
-    <p class="editable" style="text-align: center;">There are Christian on Campus clubs on other campuses in the New England area.</p>
-    <div class = "campuses">
-        <a href = "https://www.nechristiansoncampus.com/"><img src = "/images/necoc.png" style="width:100%"></a>
-    </div>
-</div>
