@@ -1,10 +1,11 @@
 ---
 title: Bible Study
-date-time: 'Thursdays | 8:30 PM - 9:30 PM'
-location: McCormick Hall Penthouse Room
-featured_image: /uploads/exodus.png
+date: 2019-05-30
+start_time: 6:30 PM
+end_time: 7:30 PM
+location: Nitery 209
+featured_image: /group/christianstudent/images/biblestudy2.jpg
 categories:
   - upcoming-events
 ---
-
-This semester, we are going through the book of Exodus and seeing how we can apply the stories in Exodus to our daily Christian walk
+Food will be provided! 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Stanford Christian Students
+permalink: 
 ---
 
 <header>
@@ -11,15 +12,15 @@ title: Stanford Christian Students
 
   <div class="mySlides fade">
     <div class="numbertext">1/3</div>
-    <img src="/images/main1.jpg" style="width:100%">
+    <img src="{{ site.baseurl }}/images/Main1.jpg" style="width:100%">
   </div>
 <div class="mySlides fade">
     <div class="numbertext">2/3</div>
-    <img src="/images/main2.jpg" style="width:100%">
+    <img src="{{ site.baseurl }}/images/Main2.jpg" style="width:100%">
   </div>
   <div class="mySlides fade">
     <div class="numbertext">3/3</div>
-    <img src="/images/main3.jpg" style="width:100%">
+    <img src="{{ site.baseurl }}/images/Main3.jpg" style="width:100%">
   </div>
   <!-- Next and previous buttons -->
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -38,7 +39,7 @@ title: Stanford Christian Students
 <div class="container"  id = "about-us">
 	<div class="columns">
 		<div>
-			<img src="/images/about.jpg" alt="Sheep" />
+			<img src="{{ site.baseurl }}/images/about.jpg" alt="about" />
 		</div>
 		<div>
 			<h2 class="editable">About us</h2>
@@ -51,40 +52,33 @@ title: Stanford Christian Students
 <div class="darker">
 	<h2 class="editable" style="text-align: center;">What we do</h2>
 	<p class="editable" style ="text-align: center;">Acts 2:46 - "And day by day, continuing steadfastly with one accord in the temple and breaking bread from house to house, they partook of their food with exultation and simplicity of heart"</p>
-	<ul class="seconds">
+	<ul class="thirds">
 		<li>
-			<img src="/images/bible-study.jpg" alt="Bible-Study"/>
+			<img src="{{ site.baseurl }}/images/bible-study.jpg" alt="Bible-Study"/>
 			<h3 class="editable">BIBLE STUDIES</h3>
 			<p class="editable">Meet in a small group to read and enjoy the Word of God. Times are flexible to meet your schedule. </p>
 		</li>
 
 		<li>
-		    <img src="/images/small-group.jpg" alt="Small-Group"/>
+		    <img src="{{ site.baseurl }}/images/small-group.jpg" alt="Small-Group"/>
 			<h3 class="editable">SMALL GROUP GATHERINGS</h3>
 			<p class="editable">A home away from home! Come enjoy open homes, open hearts, open Bibles and open fridges in the Palo Alto community.</p>
 		</li>
 		<li>
-		    <img src="/images/ipmm.jpg" alt="IPMM"/>
-			<h3 class="editable">INTERCOLLEGIATE PRAISE AND MINISTRY MEETING (IPMM)</h3>
-			<p class="editable">The Intercollegiate Praise and Ministry Meeting ("IPMM") is an exciting monthly get-together for students from Boston-area universities, which is hosted from campus to campus.</p>
-		</li>
-		<li>
-		    <img src="/images/retreat.jpg" alt="Retreat"/>
+		    <img src="{{ site.baseurl }}/images/retreat.jpg" alt="Retreat"/>
 			<h3 class="editable">FALL/SPRING RETREATS</h3>
-			<p class="editable">Every semester we set aside a weekend to unwind in the beautiful woods of Connecticut, fellowship with one another and be refreshed by the Word of God.</p>
-			<div class = "video-container">
-			    <iframe class = "video-frame" src="https://www.youtube.com/embed/VrXdNn-kVN0"></iframe>
-		    </div>
+			<p class="editable">Every semester we set aside a weekend to unwind in the beautiful woods in Sonoma, fellowship with one another and be refreshed by the Word of God.</p>
 		</li>
 	</ul>
 </div>
+ 
 
-
-<div class="darker" id = "upcoming-events">
+<div class="container" id = "upcoming-events">
 	<h2 class="editable">Upcoming Events</h2>
 	<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn"><strong>&#9998;</strong> Add Upcoming Events</a></p>
 	<div class="upcoming">
-		{% for post in site.categories.upcoming-events %}
+        {% assign sorted_posts = site.categories.upcoming-events | sort:"date"%}
+		{% for post in sorted_posts %}
 		    <div class="columns">
 		        <div>
 				    <img src="{{ post.featured_image}}"/>
@@ -92,32 +86,16 @@ title: Stanford Christian Students
 				<div>
 					<h3>{{ post.title }}</h3>
 					<hr>
-			    	<h4 class="date"><i class="fa fa-calendar-o" style = "color:darkred"></i> {{post.date-time}}</h4>
-					<h4 class="location"><i class="fa fa-map-marker" style = "color:darkred"></i> {{ post.location}}</h4>
+			    	<h4 class="date"><i class="far fa-calendar-alt" style = "color:darkred"></i> {{post.date| date:"%A %b %d, %Y"}}</h4>
+					<h4 class ="time"><i class="far fa-clock" style = "color:darkred"></i></i> {{post.start_time| date:"%I:%M %p"}} - {{post.end_time| date:"%I:%M %p"}}</h4>
+					<h4 class="location"><i class="fas fa-map-marker-alt" style = "color:darkred"></i> {{ post.location}}</h4>
+					<a href="" onclick='window.open(https://calendar.google.com/calendar/r/eventedit?&text={{post.title|replace: " ", "+"}}&dates={{post.date| date:"%Y%m%d"}}T{{post.start_time| date:"%H%M"}}00/{{post.date| date:"%Y%m%d"}}T{{post.end_time| date:"%H%M"}}00&details={{post.content|replace: " ", "+"}}&location={{post.location|replace: " ", "+"}}&trp=false&sprop=&sprop=name:");return false;'>Add to my calendar</a>
 					{{ post.content }}
 					<p class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="btn"><strong>&#9998;</strong> Edit Update</a></p>
 				</div>
 			</div>
 		{% endfor %}
 	</div>
-</div>
-
-
-
-<div class="container" id = "contact-us">
-	<h2 class="editable">Contact Us</h2>
-	<p class="editable" style="text-align: center;">Sign up to hear concerning our upcoming events</p>
-	<form action="https://formspree.io/MITChristiansoncampus@gmail.com" method="POST" />
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name..">
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email" placeholder="someone@example.com">
-        <label for="phone">Phone Number</label>
-        <input type="text" id="phone" name="phone" placeholder="(123)-456-7890"> 
-        <label for="notes">Notes</label>
-        <textarea id="notes" name="notes" placeholder="Write something.." style="height:200px"></textarea>
-        <input type="submit" value="Submit">
-    </form>
 </div>
 
 

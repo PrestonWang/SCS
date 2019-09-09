@@ -8,7 +8,7 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 		<link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
 		{% if jekyll.environment == 'production' and site.google_analytics_key != '' %}
 			<script>
 				window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -23,22 +23,25 @@
             <span class="navbar-toggle" id="js-navbar-toggle">
                     <i class="fa fa-bars" style = "color:darkred"></i>
                 </span>
-            <img src = "/images/logo.png" style = "height: 150px">
+				<img src = "{{ site.baseurl }}/images/logo.png" class = "logo">
             <ul class="main-nav" id="js-menu">
               <li>
-                <a href="#home" class="nav-links">Home</a>
+                <a href="{{ site.baseurl }}/" class="nav-links">Home</a>
               </li>
               <li>
-                <a href="#about-us" class="nav-links">About Us</a>
+                <a href="{{ site.baseurl }}/aboutus/" class="nav-links">About Us</a>
               </li>
               <li>
-                <a href="faith.html" class="nav-links">Our Faith</a>
+                <a href="{{ site.baseurl }}/faith/" class="nav-links">Our Faith</a>
               </li>
               <li>
-                <a href="#upcoming-events" class="nav-links">Events</a>
+                <a href="{{ site.baseurl }}/upcoming/" class="nav-links">Upcoming Events</a>
+              </li>
+			  <li>
+                <a href="{{ site.baseurl }}/Blog/" class="nav-links">Blog</a>
               </li>
               <li>
-                <a href="#contact-us" class="nav-links">Contact Us</a>
+                <a href="{{site.baseurl}}/contact/" class="nav-links">Contact Us</a>
               </li>
             </ul>
           </nav>
@@ -65,8 +68,8 @@
 				</div>
 
 				<div class="sharing">
-					<a class="facebook" href="https://www.facebook.com/{{ site.data.company.facebook }}">
-						{% include icons/social-media.html social_icon="facebook" %}{{ site.data.company.facebook }}
+					<a class="facebook" href="https://instagram.com/{{ site.data.company.instagram}}">
+						{% include icons/social-media.html social_icon="instagram" %}{{ site.data.company.instagram }}
 					</a>
 				</div>
 			</div>
@@ -84,6 +87,6 @@
 				}
 			});
 		</script>
-		<script type="text/javascript" src="js/slideshow.js"></script>
+		<script type="text/javascript" src="{{site.baseurl}}/js/slideshow.js"></script>
 	</body>
 </html>

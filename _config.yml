@@ -1,22 +1,22 @@
 # ----
 # Site
-/
-title: Stanford Christian
-url: https://prestonwang.github.io/
-baseurl: /SCS
+
+title: Stanford Christian Students
+url: http://web.stanford.edu/group/christianstudent/
+baseurl: /group/christianstudent
 google_analytics_key:
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
 logo: /siteicon.png
-description: Jekyll template with example content for a not-for-profit organisation.
+description: website for Stanford Christian Students
 author:
   name:
   email:
   twitter: # twitter username without the @ symbol
 social:
-  name: Cause Template
+  name: stanfordchristianstudents
   links:
-    - https://github.com/CloudCannon/cause-jekyll-template
+    - https://www.instagram.com/stanfordchristianstudents/
 
 # -----
 # Build
