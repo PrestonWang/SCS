@@ -111,7 +111,7 @@ header, nav {
 
   .logo:hover,
   .nav-links:hover {
-    color: darkred;
+    color: $primary;
   }
 }
 section {
@@ -155,7 +155,7 @@ section {
 		}
 
 		svg {
-			fill: $brand-color;
+			fill: $primary;
 			padding: 5px;
 		}
 	}
@@ -182,27 +182,16 @@ section {
 
 		text-align: center;
 
-		.image {
+		img {
 			display: inline-block;
-			line-height: 0;
 			background: white;
-			margin-top: -40px;
 			padding: 10px;
-			box-shadow: 2px 7px 39px 9px #f7f7f7;
 			border-radius: 50px;
 		}
         .post-content {
 			padding: 20px;
 		}
 
-		.date {
-			color: #ccc;
-			font-weight: bold;
-			font-size: 1.1rem;
-		}
-		p {
-			font-size: 1.1rem;
-		}
 	}
 }
 .seconds{
@@ -227,26 +216,14 @@ section {
 
 		text-align: center;
 
-		.image {
+		img {
 			display: inline-block;
-			line-height: 0;
-			background: white;
-			margin-top: -40px;
 			padding: 10px;
-			box-shadow: 2px 7px 39px 9px #f7f7f7;
-			border-radius: 50px;
+			border-radius: 5px;
+			max-height: 500px;
 		}
         .post-content {
 			padding: 20px;
-		}
-
-		.date {
-			color: #ccc;
-			font-weight: bold;
-			font-size: 1.1rem;
-		}
-		p {
-			font-size: 1.1rem;
 		}
 	}
 }
@@ -272,7 +249,12 @@ section {
     		& > div {
     			flex: 1;
     		}
-	    }
+		}
+		img {
+			display: inline-block;
+			padding: 10px;
+			border-radius: 50px;
+		}
 	}
 }
 
@@ -281,19 +263,19 @@ section {
 }
 
 footer {
-	background: #000;
-
+	background: $secondary;
+	text-align: center;
 	padding: 5px 0;
 
 	&, a {
-		color: #8e8e8e;
+		color: White;
 	}
 
 	a:hover {
-		color: #fff;
+		color: $primary;
 
 		svg {
-			fill: #fff;
+			fill: $primary;
 		}
 	}
 
@@ -324,7 +306,7 @@ footer {
 	.container {
 		@media #{$desktop} {
 			display: flex;
-			align-items: center;
+			text-align: center;
 		}
 		div {
 			@media #{$desktop} {
@@ -342,12 +324,12 @@ footer {
 .copyright {
 	padding: 5px 0;
 	margin: 0;
-	background: #000;
+	background: $secondary;
 	text-align: center;
 	font-size: .8em;
-	color: #8e8e8e;
+	color: white;
 	&:hover {
-		color: #fff;
+		color: $primary;
 	}
 }
 
@@ -451,12 +433,16 @@ footer {
 }
 
 .darker {
-	background: #f8fafb;
+	background:$tiertiary;
 	width: 100%;
 	margin: auto auto;
 	position: relative;
 	padding: 15px;
 	box-sizing: border-box;
+	color: white;
+	p{
+		color: white;
+	}
 }
 
 
@@ -542,14 +528,14 @@ footer {
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #bbb;
+  background-color: $tiertiary;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
 
 .dot:hover {
-  background-color: darkred;
+  background-color:$primary;
 }
 
 /* Fading animation */
@@ -568,4 +554,77 @@ footer {
 @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
+}
+
+.calcol {
+	display: flex;
+    flex:1;
+    &:last-child {
+      margin-left: 1em;
+    }
+  
+  .tabs {
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 4px -2px rgba(0,0,0,0.5);
+  }
+.tab {
+	width: 100%;
+	color: white;
+	overflow: hidden;
+	&-label {
+	  display: flex;
+	  justify-content: space-between;
+	  padding: 1em;
+	  background: $primary;
+	  font-weight: bold;
+	  cursor: pointer;
+	  /* Icon */
+	  &:hover {
+		background: darken($primary, 10%);
+	  }
+	  &::after {
+		content: "\276F";
+		width: 1em;
+		height: 1em;
+		text-align: center;
+		transition: all .35s;
+	  }
+	}
+	&-content {
+	  max-height: 0;
+	  padding: 0 1em;
+	  color: $primary;
+	  background: white;
+	  transition: all .35s;
+	}
+	&-close {
+	  display: flex;
+	  justify-content: flex-end;
+	  padding: 1em;
+	  font-size: 0.75em;
+	  background: $primary;
+	  cursor: pointer;
+	  &:hover {
+		background: darken($primary, 10%);
+	  }
+	}
+}
+input {
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+}
+input:checked {
+	+ .tab-label {
+	  background: darken($primary, 10%);
+	  &::after {
+		transform: rotate(90deg);
+	  }
+	}
+	~ .tab-content {
+	  max-height: 100vh;
+	  padding: 1em;
+	}
+}
 }

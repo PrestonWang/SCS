@@ -5,6 +5,7 @@ start_time: 6:30 PM
 end_time: 7:30 PM
 location: Nitery 209
 featured_image: /group/christianstudent/images/biblestudy2.jpg
+short_description: Bible Study
 categories:
   - upcoming-events
 ---

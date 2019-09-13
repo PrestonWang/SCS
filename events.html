@@ -1,0 +1,59 @@
+---
+layout: default
+title: Stanford Christian Students
+---
+
+ {% assign sorted_posts = site.categories.upcoming-events | sort:"date"%}
+<div class="container" id = "upcoming-events">
+	<h2 class="editable">Upcoming Events</h2>
+	<div class="upcoming">
+		{% for post in sorted_posts %}
+		    <div class="columns">
+		        <div>
+				    <img src="{{post.featured_image}}"/>
+				</div>
+				<div>
+					<h3>{{ post.title }}</h3>
+					<hr>
+			    	<h4 class="date"><i class="far fa-calendar-alt"></i> {{post.date| date:"%A %b %d, %Y"}}</h4>
+					<h4 class ="time"><i class="far fa-clock" ></i></i> {{post.start_time| date:"%I:%M %p"}} - {{post.end_time| date:"%I:%M %p"}}</h4>
+					<h4 class="location"><i class="fas fa-map-marker-alt"></i> {{ post.location}}</h4>
+					<div class="calcol">
+					<div class="tab">
+						<input type="checkbox" id="chck{{ forloop.index }}">
+						<label class="tab-label" for="chck{{ forloop.index }}">Add to Calendar</label>
+						<div class="tab-content" id = "google{{forloop.index}}">
+						</div>
+						<div class="tab-content" id = "yahoo{{forloop.index}}">
+						</div>
+						<div class="tab-content" id = "outlook{{forloop.index}}">
+						</div>
+						<div class="tab-content" id = "ical{{forloop.index}}">
+						</div>
+					  </div>
+					  </div>
+					{{ post.content }}
+				</div>
+			</div>
+			<script>
+					var  event = {
+						// Event title
+						title: '{{post.title}}',
+						// Event start date
+						start: new Date('{{post.date|date:"%b %d, %Y"}} {{post.start_time|date: "%k:%M"}}'),
+						// Event end date
+						end: new Date('{{post.date|date:"%b %d, %Y"}} {{post.end_time|date: "%k:%M"}}'),     
+						// Event Address
+						address:'{{post.location}}',
+						// Event Description
+						description: '{{post.short_description}}',
+					};
+					document.getElementById("google{{forloop.index}}").innerHTML = createCalendar(event,'google');
+					document.getElementById("yahoo{{forloop.index}}").innerHTML = createCalendar(event,'yahoo');
+					document.getElementById("outlook{{forloop.index}}").innerHTML = createCalendar(event,'outlook');
+					document.getElementById("ical{{forloop.index}}").innerHTML = createCalendar(event,'ical');
+				</script>
+		{% endfor %}
+	</div>
+</div>
+

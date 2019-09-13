@@ -5,8 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		{% seo %}
-
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+		<meta name="google-site-verification" content="wuFuPHvQNh6a1R64H_l3Sweh0oC7QJfYbRBp5QM12HM" />
+		<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
 		{% if jekyll.environment == 'production' and site.google_analytics_key != '' %}
@@ -17,13 +17,14 @@
 			</script>
 			<script async src='https://www.google-analytics.com/analytics.js'></script>
 		{% endif %}
+		<script src="{{site.baseurl}}/js/cal.js"></script>
 	</head>
 	<body>
 		<nav class="navbar" id = "home">
             <span class="navbar-toggle" id="js-navbar-toggle">
-                    <i class="fa fa-bars" style = "color:darkred"></i>
+                    <i class="fa fa-bars" style = "color: $primary"></i>
                 </span>
-				<img src = "{{ site.baseurl }}/images/logo.png" class = "logo">
+				<img src = "{{ site.baseurl }}/images/logo.svg" class = "logo">
             <ul class="main-nav" id="js-menu">
               <li>
                 <a href="{{ site.baseurl }}/" class="nav-links">Home</a>
@@ -35,10 +36,10 @@
                 <a href="{{ site.baseurl }}/faith/" class="nav-links">Our Faith</a>
               </li>
               <li>
-                <a href="{{ site.baseurl }}/upcoming/" class="nav-links">Upcoming Events</a>
+                <a href="{{ site.baseurl }}/events/" class="nav-links">Events</a>
               </li>
 			  <li>
-                <a href="{{ site.baseurl }}/Blog/" class="nav-links">Blog</a>
+                <a href="{{ site.baseurl }}/blog/" class="nav-links">Blog</a>
               </li>
               <li>
                 <a href="{{site.baseurl}}/contact/" class="nav-links">Contact Us</a>
@@ -49,16 +50,7 @@
 			{{ content }}
 		</div>
 		<footer>
-			<p class="editor-link" style="margin-bottom: 20px;"><a href="cloudcannon:collections/_data/company.yml" class="btn"><strong>&#9998;</strong> Update footer</a></p>
 			<div class="container">
-				<div class="about">
-					<p class="phone">
-						<a href="tel:{{ site.data.company.phone | replace: ' ', '-' }}">
-							{% include icons/footer.html icon="phone" %} {{ site.data.company.phone }}
-						</a>
-					</p>
-				</div>
-
 				<div class="contact">
 					<p class="email">
 						<a href="mailto:{{ site.data.company.email }}">
@@ -72,21 +64,18 @@
 						{% include icons/social-media.html social_icon="instagram" %}{{ site.data.company.instagram }}
 					</a>
 				</div>
+
+				<div class="sharing">
+						<a class="facebook" href="https://facebook.com/{{ site.data.company.facebook}}">
+							{% include icons/social-media.html social_icon="facebook" %}{{ site.data.company.facebook }}
+						</a>
+					</div>
 			</div>
 		</footer>
 		<p class="copyright">
 			©2019 Stanford Christian Students
 		</p>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script type="text/javascript">
-			$('a[href*=\\#]').on('click', function(event){
-				var el = $(this.hash);
-				if (el.length > 0) {
-					event.preventDefault();
-					$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
-				}
-			});
-		</script>
 		<script type="text/javascript" src="{{site.baseurl}}/js/slideshow.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	</body>
 </html>

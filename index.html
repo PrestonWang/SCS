@@ -49,7 +49,7 @@ permalink:
 	</div>
 </div>
 
-<div class="darker">
+<div class="container">
 	<h2 class="editable" style="text-align: center;">What we do</h2>
 	<p class="editable" style ="text-align: center;">Acts 2:46 - "And day by day, continuing steadfastly with one accord in the temple and breaking bread from house to house, they partook of their food with exultation and simplicity of heart"</p>
 	<ul class="thirds">
@@ -71,29 +71,56 @@ permalink:
 		</li>
 	</ul>
 </div>
- 
-
+ {% assign sorted_posts = site.categories.upcoming-events | sort:"date"%}
 <div class="container" id = "upcoming-events">
 	<h2 class="editable">Upcoming Events</h2>
-	<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn"><strong>&#9998;</strong> Add Upcoming Events</a></p>
 	<div class="upcoming">
-        {% assign sorted_posts = site.categories.upcoming-events | sort:"date"%}
 		{% for post in sorted_posts %}
 		    <div class="columns">
 		        <div>
-				    <img src="{{ post.featured_image}}"/>
+				    <img src="{{post.featured_image}}"/>
 				</div>
 				<div>
 					<h3>{{ post.title }}</h3>
 					<hr>
-			    	<h4 class="date"><i class="far fa-calendar-alt" style = "color:darkred"></i> {{post.date| date:"%A %b %d, %Y"}}</h4>
-					<h4 class ="time"><i class="far fa-clock" style = "color:darkred"></i></i> {{post.start_time| date:"%I:%M %p"}} - {{post.end_time| date:"%I:%M %p"}}</h4>
-					<h4 class="location"><i class="fas fa-map-marker-alt" style = "color:darkred"></i> {{ post.location}}</h4>
-					<a href="" onclick='window.open(https://calendar.google.com/calendar/r/eventedit?&text={{post.title|replace: " ", "+"}}&dates={{post.date| date:"%Y%m%d"}}T{{post.start_time| date:"%H%M"}}00/{{post.date| date:"%Y%m%d"}}T{{post.end_time| date:"%H%M"}}00&details={{post.content|replace: " ", "+"}}&location={{post.location|replace: " ", "+"}}&trp=false&sprop=&sprop=name:");return false;'>Add to my calendar</a>
+			    	<h4 class="date"><i class="far fa-calendar-alt" ></i> {{post.date| date:"%A %b %d, %Y"}}</h4>
+					<h4 class ="time"><i class="far fa-clock"></i></i> {{post.start_time| date:"%I:%M %p"}} - {{post.end_time| date:"%I:%M %p"}}</h4>
+					<h4 class="location"><i class="fas fa-map-marker-alt"></i> {{ post.location}}</h4>
+					<div class="calcol">
+					<div class="tab">
+						<input type="checkbox" id="chck{{ forloop.index }}">
+						<label class="tab-label" for="chck{{ forloop.index }}">Add to Calendar</label>
+						<div class="tab-content" id = "google{{forloop.index}}">
+						</div>
+						<div class="tab-content" id = "yahoo{{forloop.index}}">
+						</div>
+						<div class="tab-content" id = "outlook{{forloop.index}}">
+						</div>
+						<div class="tab-content" id = "ical{{forloop.index}}">
+						</div>
+					  </div>
+					  </div>
 					{{ post.content }}
-					<p class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="btn"><strong>&#9998;</strong> Edit Update</a></p>
 				</div>
 			</div>
+			<script>
+					var  event = {
+						// Event title
+						title: '{{post.title}}',
+						// Event start date
+						start: new Date('{{post.date|date:"%b %d, %Y"}} {{post.start_time|date: "%k:%M"}}'),
+						// Event end date
+						end: new Date('{{post.date|date:"%b %d, %Y"}} {{post.end_time|date: "%k:%M"}}'),     
+						// Event Address
+						address:'{{post.location}}',
+						// Event Description
+						description: '{{post.short_description}}',
+					};
+					document.getElementById("google{{forloop.index}}").innerHTML = createCalendar(event,'google');
+					document.getElementById("yahoo{{forloop.index}}").innerHTML = createCalendar(event,'yahoo');
+					document.getElementById("outlook{{forloop.index}}").innerHTML = createCalendar(event,'outlook');
+					document.getElementById("ical{{forloop.index}}").innerHTML = createCalendar(event,'ical');
+				</script>
 		{% endfor %}
 	</div>
 </div>

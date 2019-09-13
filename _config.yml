@@ -7,7 +7,8 @@ baseurl: /group/christianstudent
 google_analytics_key:
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
-logo: /siteicon.png
+logo: http://web.stanford.edu/group/christianstudent/images/logo.svg
+url: http://web.stanford.edu/group/christianstudent/
 description: website for Stanford Christian Students
 author:
   name:
@@ -17,6 +18,7 @@ social:
   name: stanfordchristianstudents
   links:
     - https://www.instagram.com/stanfordchristianstudents/
+    - https://www.facebook.com/stanfordchristianstudents/
 
 # -----
 # Build
