@@ -6,7 +6,7 @@
 
 		{% seo %}
 		<meta name="google-site-verification" content="wuFuPHvQNh6a1R64H_l3Sweh0oC7QJfYbRBp5QM12HM" />
-		<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:300&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
 		{% if jekyll.environment == 'production' and site.google_analytics_key != '' %}
@@ -19,38 +19,48 @@
 		{% endif %}
 		<script src="{{site.baseurl}}/js/cal.js"></script>
 	</head>
-	<body>
+	<header>
 		<nav class="navbar" id = "home">
             <span class="navbar-toggle" id="js-navbar-toggle">
                     <i class="fa fa-bars" style = "color: $primary"></i>
-                </span>
-				<img src = "{{ site.baseurl }}/images/logo.svg" class = "logo">
+				</span>
+				<img src = "{{ site.baseurl }}/images/logo.png" class = "logo">
             <ul class="main-nav" id="js-menu">
               <li>
-                <a href="{{ site.baseurl }}/" class="nav-links">Home</a>
+                <a href="{{ site.baseurl }}/" class="nav-links">HOME</a>
               </li>
               <li>
-                <a href="{{ site.baseurl }}/aboutus/" class="nav-links">About Us</a>
+                <a href="{{ site.baseurl }}/aboutus/" class="nav-links">ABOUT</a>
               </li>
               <li>
-                <a href="{{ site.baseurl }}/faith/" class="nav-links">Our Faith</a>
+                <a href="{{ site.baseurl }}/faith/" class="nav-links">OUR FAITH</a>
               </li>
               <li>
-                <a href="{{ site.baseurl }}/events/" class="nav-links">Events</a>
+                <a href="{{ site.baseurl }}/events/" class="nav-links">EVENTS</a>
               </li>
 			  <li>
-                <a href="{{ site.baseurl }}/blog/" class="nav-links">Blog</a>
+                <a href="{{ site.baseurl }}/blog/" class="nav-links">BLOG</a>
               </li>
               <li>
-                <a href="{{site.baseurl}}/contact/" class="nav-links">Contact Us</a>
+                <a href="{{site.baseurl}}/contact/" class="nav-links">CONTACT</a>
               </li>
-            </ul>
-          </nav>
+			</ul>
+		  </nav>
+		</header>
+		<body>
 		<div class="content">
 			{{ content }}
 		</div>
+		</body>
 		<footer>
 			<div class="container">
+					<div class="contact">
+							<p class="phone">
+								<a href="tel:{{ site.data.company.phone | replace: ' ', '-' }}">
+									{% include icons/footer.html icon="phone" %} {{ site.data.company.phone }}
+								</a>
+							</p>
+						</div>
 				<div class="contact">
 					<p class="email">
 						<a href="mailto:{{ site.data.company.email }}">

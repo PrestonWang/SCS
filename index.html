@@ -4,37 +4,13 @@ title: Stanford Christian Students
 permalink: 
 ---
 
-<header>
 	<!-- Slideshow container -->
 <div class="slideshow-container">
 
   <!-- Full-width images with number and caption text -->
-
-  <div class="mySlides fade">
-    <div class="numbertext">1/3</div>
-    <img src="{{ site.baseurl }}/images/Main1.jpg" style="width:100%">
-  </div>
-<div class="mySlides fade">
-    <div class="numbertext">2/3</div>
-    <img src="{{ site.baseurl }}/images/Main2.jpg" style="width:100%">
-  </div>
-  <div class="mySlides fade">
-    <div class="numbertext">3/3</div>
-    <img src="{{ site.baseurl }}/images/Main3.jpg" style="width:100%">
-  </div>
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+	<img src="{{ site.baseurl }}/images/Main1.jpg" style="width:100%">
 </div>
-<br>
 
-<!-- The dots/circles -->
-<div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span> 
-    <span class="dot" onclick="currentSlide(2)"></span> 
-    <span class="dot" onclick="currentSlide(3)"></span> 
-</div>
-</header>
 
 <div class="container"  id = "about-us">
 	<div class="columns">
@@ -42,8 +18,7 @@ permalink:
 			<img src="{{ site.baseurl }}/images/about.jpg" alt="about" />
 		</div>
 		<div>
-			<h2 class="editable">About us</h2>
-
+			<h2 class="about">ABOUT US</h2>
 			<p class="editable">Stanford Christian Students is a registered Stanford student organization. We are believers in Christ from diverse backgrounds who love our dear Lord Jesus and hold the Christian faith which is common to all believers.</p>
 		</div>
 	</div>
@@ -71,7 +46,7 @@ permalink:
 		</li>
 	</ul>
 </div>
- {% assign sorted_posts = site.categories.upcoming-events | sort:"date"%}
+ {% assign sorted_posts = site.categories.upcoming-events | sort:"event_date"%}
 <div class="container" id = "upcoming-events">
 	<h2 class="editable">Upcoming Events</h2>
 	<div class="upcoming">
@@ -83,7 +58,7 @@ permalink:
 				<div>
 					<h3>{{ post.title }}</h3>
 					<hr>
-			    	<h4 class="date"><i class="far fa-calendar-alt" ></i> {{post.date| date:"%A %b %d, %Y"}}</h4>
+			    	<h4 class="date"><i class="far fa-calendar-alt" ></i> {{post.event_date| date:"%A %b %d, %Y"}}</h4>
 					<h4 class ="time"><i class="far fa-clock"></i></i> {{post.start_time| date:"%I:%M %p"}} - {{post.end_time| date:"%I:%M %p"}}</h4>
 					<h4 class="location"><i class="fas fa-map-marker-alt"></i> {{ post.location}}</h4>
 					<div class="calcol">
@@ -108,9 +83,9 @@ permalink:
 						// Event title
 						title: '{{post.title}}',
 						// Event start date
-						start: new Date('{{post.date|date:"%b %d, %Y"}} {{post.start_time|date: "%k:%M"}}'),
+						start: new Date('{{post.event_date|date:"%b %d, %Y"}} {{post.start_time|date: "%k:%M"}}'),
 						// Event end date
-						end: new Date('{{post.date|date:"%b %d, %Y"}} {{post.end_time|date: "%k:%M"}}'),     
+						end: new Date('{{post.event_date|date:"%b %d, %Y"}} {{post.end_time|date: "%k:%M"}}'),     
 						// Event Address
 						address:'{{post.location}}',
 						// Event Description

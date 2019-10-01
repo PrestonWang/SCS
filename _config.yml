@@ -54,6 +54,8 @@ defaults:
     values:
       layout: "default"
 
+future: TRUE
+
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
