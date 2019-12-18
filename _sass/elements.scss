@@ -80,7 +80,7 @@ input[type=text], select, textarea {
 }
 
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color: $primary;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -89,7 +89,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: darken($primary, 5%);
 }
 }
 
@@ -100,6 +100,15 @@ input[type=submit]:hover {
 	transition: 200ms ease-in background;
 
 	&:hover {
-		background: darken($primary, 5%);
+		background: darken($secondary, 5%);
 	}
+}
+
+a.buttonlink{
+	background-color: $primary;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 }

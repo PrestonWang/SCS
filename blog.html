@@ -1,12 +1,15 @@
 ---
 layout: default
-title: Stanford Christian Students
+title: Previous Events
+pagination: 
+  enabled: true
+  category: previous-events
 ---
 
 <div class="container" id = "upcoming-events">
 	<h2 class="editable">Past Events</h2>
 	<div class="seconds">
-		{% for post in site.categories.previous-events %}
+		{% for post in paginator.posts %}
 		    <li>
 		        <div>
 				    <img src="{{post.featured_image}}"/>
@@ -20,5 +23,15 @@ title: Stanford Christian Students
 			</li>
 		{% endfor %}
 	</div>
+</div>
+<div class = "container" style = "text-align: center">
+	{% if paginator.total_pages > 1 %}
+		{% if paginator.next_page %}
+			<a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class = "buttonlink">Older</a>
+		{% endif %}
+		{% if paginator.previous_page %}
+				<a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class = "buttonlink">Newer</a>
+		{% endif %}
+{% endif %}
 </div>
 
