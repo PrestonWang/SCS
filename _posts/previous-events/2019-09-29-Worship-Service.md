@@ -1,5 +1,5 @@
 ---
-title: Worship Service
+title: First Worship Service
 date: 2019-09-29
 featured_image: /group/christianstudent/images/previous/2019-09-29.jpg
 categories: previous-events

@@ -1,7 +1,7 @@
 ---
-title: Thursday Night Bible Study  
-date: 2019-10-03
-featured_image: /group/christianstudent/images/previous/2019-10-03.jpg
+title: Sister's Brunch    
+date: 2019-12-07
+featured_image: /group/christianstudent/images/previous/2019-12-07.jpg
 categories: previous-events
 ---
-This was our first Thursday night Bible Study of the year. This week, we started with Matthew Ch. 1. How do you know Jesus? Matthew 1 introduces us to Him in a couple of ways: first, He is a king of a long royal line. However, He is also a man—human like us! Let’s all strive to know Jesus as both man and king!
+We had a lovely sisters’ brunch this morning! Ladies at all different stages of their journeys shared advice with our first-year students. Thank you Xuefei for opening your home! 🥓🍳🥞
